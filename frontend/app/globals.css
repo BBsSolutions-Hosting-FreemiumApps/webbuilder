@@ -1,0 +1,105 @@
+:root {
+  --bg: #0f172a;
+  --panel: #1e293b;
+  --border: #334155;
+  --text: #e2e8f0;
+  --muted: #94a3b8;
+  --accent: #818cf8;
+}
+
+* { box-sizing: border-box; margin: 0; }
+html, body { height: 100%; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 380px 1fr;
+  height: 100vh;
+}
+
+.sidebar {
+  background: var(--panel);
+  border-right: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  padding: 1.25rem;
+  gap: 1rem;
+  overflow: hidden;
+}
+
+.header h1 { font-size: 1.25rem; }
+.header p { color: var(--muted); font-size: .85rem; margin-top: .25rem; }
+
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: .6rem;
+}
+
+.msg { padding: .6rem .8rem; border-radius: 10px; font-size: .9rem; white-space: pre-wrap; }
+.msg.user { background: var(--accent); color: #0f172a; align-self: flex-end; }
+.msg.assistant { background: #0f172a; border: 1px solid var(--border); align-self: flex-start; }
+.msg.error { background: #7f1d1d; align-self: stretch; }
+
+.composer { display: flex; gap: .5rem; }
+.composer input {
+  flex: 1;
+  padding: .7rem .8rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #0f172a;
+  color: var(--text);
+  font: inherit;
+}
+.composer button, .start-button {
+  padding: .7rem 1.1rem;
+  border-radius: 8px;
+  border: none;
+  background: var(--accent);
+  color: #0f172a;
+  font-weight: 600;
+  cursor: pointer;
+}
+.composer button:disabled { opacity: .5; cursor: wait; }
+
+.preview { display: flex; flex-direction: column; }
+.preview-bar {
+  padding: .6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  color: var(--muted);
+  font-size: .85rem;
+  display: flex;
+  justify-content: space-between;
+}
+.preview iframe { flex: 1; border: none; width: 100%; background: #fff; }
+
+.start-screen {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  gap: 1rem;
+}
+.start-card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 420px;
+}
+.start-card input {
+  padding: .7rem .8rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: #0f172a;
+  color: var(--text);
+  font: inherit;
+}
